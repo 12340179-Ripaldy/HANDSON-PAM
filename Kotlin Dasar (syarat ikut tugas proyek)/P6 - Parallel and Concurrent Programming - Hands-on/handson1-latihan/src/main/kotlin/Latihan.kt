@@ -40,3 +40,5 @@ fun main() {
 
     println("Hasil akhir: ${counter.value()} (seharusnya ${iterasi * 2})")
 }
+
+//
