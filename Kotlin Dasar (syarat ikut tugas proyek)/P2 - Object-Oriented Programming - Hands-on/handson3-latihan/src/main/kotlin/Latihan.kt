@@ -33,9 +33,4 @@ fun main() {
 // Sedang memuat...
 // Berhasil: Data pengguna berhasil diambil
 // Gagal: Koneksi terputus
-
-fun main() {
-    println(describe(Loading))
-    println(describe(Success("Data pengguna berhasil diambil")))
-    println(describe(Error("Koneksi terputus")))
-}
+//
