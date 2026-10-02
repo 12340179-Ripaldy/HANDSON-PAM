@@ -20,4 +20,4 @@ fun main() {
 // Output yang diharapkan:
 // Nama: Andi, Umur: 20 tahun, Kota: Bandar Lampung
 // Nama: Budi, Umur: umur tidak diketahui, Kota: Tidak diketahui
-// Nama: Citra, Umur: 19 tahun, Kota: Tidak diketahui
+// Nama: Citra, Umur: 19 tahun, Kota: Tidak diketahui.
