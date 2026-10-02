@@ -27,3 +27,5 @@ fun main() {
     println(findMax(listOf(1.5, 2.8, 0.3)))          // Output: 2.8
     println(findMax(listOf("apel", "jeruk", "duku")))// Output: jeruk
 }
+
+//Selesai
