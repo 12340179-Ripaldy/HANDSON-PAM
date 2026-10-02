@@ -31,3 +31,4 @@ fun main() {
 // Nilai 71 -> Grade C
 // Nilai 60 -> Grade D
 // Nilai 45 -> Grade E
+//
