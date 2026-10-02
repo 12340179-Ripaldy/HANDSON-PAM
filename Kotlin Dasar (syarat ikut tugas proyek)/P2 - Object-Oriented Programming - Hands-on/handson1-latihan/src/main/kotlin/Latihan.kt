@@ -40,3 +40,4 @@ fun main() {
 // Output:
 // Toyota dapat melaju hingga 180 km/h dan punya 4 pintu
 // Ninja dapat melaju hingga 220 km/h (tanpa sidecar)
+//
