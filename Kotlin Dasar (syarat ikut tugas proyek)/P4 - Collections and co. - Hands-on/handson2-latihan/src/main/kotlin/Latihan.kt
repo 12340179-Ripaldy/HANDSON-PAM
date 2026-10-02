@@ -39,3 +39,4 @@ fun main() {
 // Output:
 // Total per kategori: {Makanan=85000, Transportasi=35000, Hiburan=100000}
 // Cari TRX03: Transaksi(id=TRX03, kategori=Makanan, nominal=35000)
+//
