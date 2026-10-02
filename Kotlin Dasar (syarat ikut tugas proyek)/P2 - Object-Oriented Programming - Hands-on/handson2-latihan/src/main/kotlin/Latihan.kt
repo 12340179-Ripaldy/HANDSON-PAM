@@ -40,3 +40,4 @@ fun main() {
 // Gaji Bob: 5500000.0
 // alice == aliceDuplicate? true
 // Employee(name=Alice, baseSalary=5000000.0, bonus=500000.0)
+//
