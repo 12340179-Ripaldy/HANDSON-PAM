@@ -1,0 +1,5 @@
+# Tool/session state (oh-my-claudecode, dsb) — bukan bagian dari materi
+.omc/
+
+# OS cruft
+.DS_Store
