@@ -16,18 +16,14 @@ fun main() {
     val angka = listOf(1, 2, 3, 4)
     val startTime = System.currentTimeMillis()
 
-    // TODO 1: Buat ExecutorService dengan Executors.newFixedThreadPool(4)
-    // val executor = ???
+    val executor = Executors.newFixedThreadPool(4)
 
-    // TODO 2: Submit satu Callable per angka ke executor, simpan Future-nya
-    // val futures = angka.map { n -> executor.submit(Callable { hitungKuadrat(n) }) }
+    val futures = angka.map { n -> executor.submit(Callable { hitungKuadrat(n) }) }
 
-    // TODO 3: Ambil semua hasil dengan future.get(), lalu tampilkan
-    // val hasil = futures.map { it.get() }
-    // println("Hasil: $hasil")
+    val hasil = futures.map { it.get() }
+    println("Hasil: $hasil")
 
-    // TODO 4: Jangan lupa shutdown() executor supaya program bisa berhenti (JVM
-    // tidak akan exit selama thread pool masih hidup)
+    executor.shutdown()
 
     val endTime = System.currentTimeMillis()
     println("Waktu: ${endTime - startTime}ms")

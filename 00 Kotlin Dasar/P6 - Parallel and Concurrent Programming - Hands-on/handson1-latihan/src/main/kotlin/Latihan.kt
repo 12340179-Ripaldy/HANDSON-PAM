@@ -5,22 +5,20 @@ import kotlin.concurrent.thread
 // 100_000x masing-masing secara BERSAMAAN. Karena c++ bukan operasi atomik
 // (baca-ubah-tulis, bisa saling menyela/interleave antar thread), hasil akhirnya
 // SERING SALAH (bukan 200_000) — itulah race condition.
-//
-// TODO: Perbaiki class Counter di bawah supaya increment() aman dari race
-// condition, sehingga hasil akhirnya SELALU 200_000 walau dijalankan berkali-kali.
-// Gunakan salah satu: `synchronized(this) { }` ATAU `java.util.concurrent.atomic.AtomicInteger`.
 
 class Counter {
     private var c = 0
 
     fun increment() {
-        // TODO 1: Bungkus baris di bawah supaya thread-safe
-        c++
+        synchronized(this) {
+            c++
+        }
     }
 
     fun value(): Int {
-        // TODO 2: Jika kamu memakai AtomicInteger, sesuaikan cara membaca nilainya di sini
-        return c
+        synchronized(this) {
+            return c
+        }
     }
 }
 
