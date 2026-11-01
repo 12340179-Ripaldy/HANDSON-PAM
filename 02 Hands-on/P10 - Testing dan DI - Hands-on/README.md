@@ -15,7 +15,7 @@ Melengkapi `FakeClockProvider` yang mendelegasikan waktu ke `TestTimeSource`, ke
 ### 3. KoinModuleTest.kt — Koin DI Module
 Memverifikasi bahwa dependency di dalam `appModule` dapat di-resolve oleh Koin dengan benar menggunakan `KoinTest` dan `by inject<T>()`.
 
-- Konsep: Koin `module { }`, `startKoin` dan `stopKoin`, `KoinTest`.
+- Konsep: Koin `module { }`, `startKoin` dan `stopKoin`, `KoinTest`
 
 ## Troubleshooting
 
