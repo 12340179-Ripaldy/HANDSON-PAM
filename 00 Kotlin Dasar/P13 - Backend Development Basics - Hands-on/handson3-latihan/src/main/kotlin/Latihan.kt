@@ -7,32 +7,32 @@ import java.net.InetSocketAddress
 //      sama persis sebagai response (status 200).
 //   2. Tambahkan handler default ("/") yang mengembalikan status 404
 //      Not Found untuk semua path yang tidak dikenal.
-//
-// CATATAN: File ini SENGAJA belum bisa di-compile sampai kamu melengkapi
-// semua TODO di bawah — itu normal untuk latihan ini!
 
 fun main() {
     val server = HttpServer.create(InetSocketAddress("0.0.0.0", 8080), 0)
 
     server.createContext("/echo") { exchange ->
         if (exchange.requestMethod != "POST") {
-            // TODO 1: Kirim status 405 Method Not Allowed (body kosong,
-            // pakai sendResponseHeaders(405, -1) lalu return)
+            exchange.sendResponseHeaders(405, -1)
+            exchange.close()
+            return@createContext
         }
 
-        // TODO 2: Ganti baris di bawah ini dengan kode yang membaca seluruh isi
-        // exchange.requestBody menjadi ByteArray (gunakan exchange.requestBody.readBytes())
-        val requestBytes: ByteArray = belumDiimplementasikan
+        val requestBytes: ByteArray = exchange.requestBody.readBytes()
 
-        // TODO 3: Kirim balik requestBytes sebagai response body,
-        // dengan status 200
+        exchange.sendResponseHeaders(200, requestBytes.size.toLong())
+        exchange.responseBody.use { os ->
+            os.write(requestBytes)
+        }
     }
 
     server.createContext("/") { exchange ->
-        // TODO 4: Ini handler default untuk semua path yang tidak match
-        // context lain (mis. "/foo", "/bar"). Kirim status 404 Not Found
-        // dengan body teks "Not Found: <path>" (ambil path dari
-        // exchange.requestURI.path)
+        val path = exchange.requestURI.path
+        val notFoundBody = "Not Found: $path".toByteArray()
+        exchange.sendResponseHeaders(404, notFoundBody.size.toLong())
+        exchange.responseBody.use { os ->
+            os.write(notFoundBody)
+        }
     }
 
     server.start()
