@@ -5,18 +5,13 @@
 data class Transaksi(val id: String, val kategori: String, val nominal: Int)
 
 fun totalPerKategori(transaksi: List<Transaksi>): Map<String, Int> {
-    // TODO 1: Kelompokkan (groupBy) transaksi berdasarkan kategori
-    // TODO 2: Untuk setiap grup, jumlahkan (sumOf) nominal-nya
-    // Hasil akhir: Map<kategori, totalNominal>
-
-    return emptyMap()
+    return transaksi
+        .groupBy { it.kategori }
+        .mapValues { (_, daftarTransaksi) -> daftarTransaksi.sumOf { it.nominal } }
 }
 
 fun transaksiById(transaksi: List<Transaksi>): Map<String, Transaksi> {
-    // TODO 3: Buat Map dari List, dengan `id` transaksi sebagai key,
-    //         menggunakan associateBy (agar bisa lookup transaksi via ID)
-
-    return emptyMap()
+    return transaksi.associateBy { it.id }
 }
 
 fun main() {
