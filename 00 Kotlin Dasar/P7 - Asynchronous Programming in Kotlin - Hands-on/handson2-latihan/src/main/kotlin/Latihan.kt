@@ -20,14 +20,14 @@ suspend fun calculateTotalPrice(prices: List<Int>): Int {
 fun main() = runBlocking {
     val prices = listOf(15000, 25000, 10000)
 
-    // TODO 1: Jalankan writeAccessLog("Checkout dimulai") dengan launch
-    //         (kita tidak butuh return value-nya).
+    launch {
+        writeAccessLog("Checkout dimulai")
+    }
 
-    // TODO 2: Jalankan calculateTotalPrice(prices) dengan async, simpan
-    //         Deferred<Int>-nya ke sebuah variabel.
+    val deferredTotal = async {
+        calculateTotalPrice(prices)
+    }
 
-    // TODO 3: Ambil hasil total dari Deferred tersebut dengan await(),
-    //         lalu cetak "Total belanja: Rp<total>".
-
-    // Kode kamu di sini...
+    val total = deferredTotal.await()
+    println("Total belanja: Rp$total")
 }
