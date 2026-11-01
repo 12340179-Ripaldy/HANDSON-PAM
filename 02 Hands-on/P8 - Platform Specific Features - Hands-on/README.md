@@ -15,7 +15,7 @@ Memeriksa status izin kamera perangkat menggunakan fungsi `hasCameraPermission()
 ### 3. Handson3Di.kt — Dependency Injection dengan Koin
 Mengambil instance `GreetingRepository` yang telah didaftarkan pada `appModule` menggunakan `koinInject<GreetingRepository>()` di dalam fungsi Composable.
 
-- Konsep: Koin `module { single<T> { ... } }`, `startKoin`, dan `koinInject()`.
+- Konsep: Koin `module { single<T> { ... } }`, `startKoin`, dan `koinInject()`
 
 ## Troubleshooting
 
