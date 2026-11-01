@@ -8,20 +8,14 @@ import kotlin.reflect.full.memberProperties
 data class Mahasiswa(val nim: String, val nama: String, val ipk: Double)
 
 fun printFields(obj: Any) {
-    // TODO 1: Ambil KClass dari obj (gunakan obj::class)
-    // TODO 2: Iterasi memberProperties dari KClass tersebut
-    // TODO 3: Untuk setiap property, panggil property.getter.call(obj)
-    //         untuk mendapatkan nilainya, lalu cetak "namaProperty = nilai"
-
-    // Kode kamu di sini...
+    val kClass = obj::class
+    for (property in kClass.memberProperties) {
+        val nilai = property.getter.call(obj)
+        println("${property.name} = $nilai")
+    }
 }
 
 fun main() {
     val mhs = Mahasiswa("122140000", "Budi Santoso", 3.75)
     printFields(mhs)
-
-    // Output yang diharapkan (urutan boleh berbeda):
-    // nim = 122140000
-    // nama = Budi Santoso
-    // ipk = 3.75
 }
