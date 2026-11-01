@@ -3,13 +3,14 @@
 // menggunakan try-catch-finally, tanpa membuat program crash.
 
 fun safeDivide(a: Int, b: Int): Int {
-    // TODO 1: Bungkus pembagian a / b di dalam blok try
-    // TODO 2: Tangkap ArithmeticException, cetak pesan error yang jelas,
-    //         lalu kembalikan 0 sebagai nilai default
-    // TODO 3: Di blok finally, cetak "safeDivide($a, $b) selesai diproses"
-    //         (finally HARUS tetap jalan baik sukses maupun error)
-
-    return a / b // <-- baris ini akan melempar ArithmeticException saat b == 0
+    return try {
+        a / b
+    } catch (e: ArithmeticException) {
+        println("Error: Tidak dapat membagi $a dengan nol (${e.message})")
+        0
+    } finally {
+        println("safeDivide($a, $b) selesai diproses")
+    }
 }
 
 fun main() {
