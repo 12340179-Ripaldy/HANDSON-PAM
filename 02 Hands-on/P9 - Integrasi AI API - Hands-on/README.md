@@ -15,7 +15,7 @@ Melengkapi fungsi `buildPrompt()` untuk menggabungkan instruksi sistem (system i
 ### 3. Handson3ChatScreen.kt — AI-Powered Chat UI
 Membangun antarmuka chat sederhana yang terdiri dari input teks, tombol kirim, daftar pesan dalam `LazyColumn`, serta indikator loading saat menunggu respons dari `AiRepository.ask()`.
 
-- Konsep: `LazyColumn`, pengelolaan list state, `rememberCoroutineScope()`.
+- Konsep: `LazyColumn`, pengelolaan list state, `rememberCoroutineScope()`
 
 ## Troubleshooting
 
